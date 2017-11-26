@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <children>
+      <ImageView fitWidth="50.0" layoutX="-79.0" layoutY="-49.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@../Image/CMU_Logo_Stack_White.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="5.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="32.0">
+         <image>
+            <Image url="@../Image/accountBlack.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="50.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="92.0">
+         <image>
+            <Image url="@../Image/homeWhite.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="60.0" fitWidth="50.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="152.0">
+         <image>
+            <Image url="@../Image/reportBlack.png" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="53.0" layoutY="86.0" prefHeight="200.0" prefWidth="560.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ImageView id="currentFrame" fx:id="currentFrame" fitHeight="791.0" fitWidth="1153.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0" />
+            <Button id="camera_btn" fx:id="camera_btn" layoutY="360.0" mnemonicParsing="false" onAction="#startCamera" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #4d4d4d;" text="Start Camera" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
+            <Button layoutX="143.0" layoutY="360.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="448.0" style="-fx-background-color: #4d4d4d;" text="This is another person ?" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="143.0" AnchorPane.rightAnchor="559.0" />
+            <Button layoutX="230.0" layoutY="360.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="209.0" style="-fx-background-color: #4d4d4d;" text="This is a stranger?" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="350.0" />
+            <AnchorPane layoutX="332.0" layoutY="18.0" prefHeight="400.0" prefWidth="350.0" style="-fx-background-color: #595959;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <AnchorPane fx:id="name" layoutX="16.0" layoutY="21.0" prefHeight="223.0" prefWidth="318.0" style="-fx-background-color: #4d4d4d;" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="20.0">
+                     <children>
+                        <ImageView fitHeight="88.0" fitWidth="88.0" layoutX="7.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="7.0">
+                           <image>
+                              <Image url="@../Image/avatar_1540px_1201441_easyicon.net.png" />
+                           </image>
+                        </ImageView>
+                        <Text fill="WHITE" layoutX="103.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="53.749755859375">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="103.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Program">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="103.0" layoutY="168.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="102.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nationality">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="103.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AndrewID">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#c9c6c6" layoutX="17.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Basic Information" AnchorPane.leftAnchor="17.0" AnchorPane.topAnchor="16.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Text>
+                        <Label layoutX="188.0" layoutY="51.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
+                        <Label layoutX="188.0" layoutY="77.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
+                        <Label layoutX="188.0" layoutY="103.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
+                        <Label layoutX="188.0" layoutY="130.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
+                        <Label layoutX="188.0" layoutY="156.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
+                        <Label layoutX="188.0" layoutY="182.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
+                        <Text fill="WHITE" layoutX="102.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID" wrappingWidth="80.38598150881876">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Text>
+                     </children></AnchorPane>
+                  <AnchorPane fx:id="name1" layoutX="16.0" layoutY="261.0" prefHeight="102.0" prefWidth="318.0" style="-fx-background-color: #4d4d4d;" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0">
+                     <children>
+                        <Text fill="WHITE" layoutX="64.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last time visited">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fill="WHITE" layoutX="64.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Times of visit">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Text>
+                        <Text fill="#c9c6c6" layoutX="19.0" layoutY="29.501953125" strokeType="OUTSIDE" strokeWidth="0.0" text="Visit Information" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="15.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font></Text>
+                        <Label layoutX="189.0" layoutY="68.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
+                        <Label layoutX="189.0" layoutY="39.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
+                     </children>
+                  </AnchorPane>
+                  <Button fx:id="editInfo_btn" layoutX="16.0" layoutY="381.0" mnemonicParsing="false" onAction="#showEditInfoAlert" prefHeight="33.0" prefWidth="167.0" style="-fx-background-color: white;" text="Edit Information" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+                  <Button layoutX="16.0" layoutY="435.0" mnemonicParsing="false" onAction="#showAddNewMemberAlert" prefHeight="33.0" prefWidth="175.0" style="-fx-background-color: white;" text="Add New Member" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+                  <Button layoutX="16.0" layoutY="489.0" mnemonicParsing="false" onAction="#showReasonAlert" prefHeight="33.0" prefWidth="175.0" style="-fx-background-color: white;" text="Reason for Visit" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Button>
+                  <Button layoutX="16.0" layoutY="541.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="318.0" style="-fx-background-color: white;" text="Call Security">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
