@@ -53,7 +53,7 @@ public class Controller {
      * @throws IOException
      */
     public void showEditInfoAlert(ActionEvent event) throws IOException {
-        Parent edit_parent = FXMLLoader.load(getClass().getResource("/sample/EditInformation.fxml"));
+        Parent edit_parent = FXMLLoader.load(getClass().getResource("/MainFrame/EditInformation.fxml"));
         Scene edit_scene = new Scene(edit_parent);
         Stage window = new Stage();
         window.setScene(edit_scene);
@@ -66,7 +66,7 @@ public class Controller {
      * @throws IOException
      */
     public void showAddNewMemberAlert(ActionEvent event) throws IOException {
-        Parent add_parent = FXMLLoader.load(getClass().getResource("/sample/AddNewMember.fxml"));
+        Parent add_parent = FXMLLoader.load(getClass().getResource("/MainFrame/AddNewMember.fxml"));
         Scene add_scene = new Scene(add_parent);
         Stage window = new Stage();
         window.setScene(add_scene);
@@ -79,7 +79,7 @@ public class Controller {
      * @throws IOException
      */
     public void showReasonAlert(ActionEvent event) throws IOException {
-        Parent reason_parent = FXMLLoader.load(getClass().getResource("/sample/ReasonForVisit.fxml"));
+        Parent reason_parent = FXMLLoader.load(getClass().getResource("/MainFrame/ReasonForVisit.fxml"));
         Scene reason_scene = new Scene(reason_parent);
         Stage window = new Stage();
         window.setScene(reason_scene);

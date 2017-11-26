@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFrame.Controller">
    <children>
       <ImageView fitWidth="50.0" layoutX="-79.0" layoutY="-49.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
@@ -32,7 +32,7 @@
       </ImageView>
       <AnchorPane layoutX="53.0" layoutY="86.0" prefHeight="200.0" prefWidth="560.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView id="currentFrame" fx:id="currentFrame" fitHeight="791.0" fitWidth="1153.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-3.0" AnchorPane.topAnchor="0.0" />
+            <ImageView id="currentFrame" fx:id="currentFrame" fitHeight="839.0" fitWidth="1262.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-112.0" AnchorPane.topAnchor="0.0" />
             <Button id="camera_btn" fx:id="camera_btn" layoutY="360.0" mnemonicParsing="false" onAction="#startCamera" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #4d4d4d;" text="Start Camera" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
             <Button layoutX="143.0" layoutY="360.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="448.0" style="-fx-background-color: #4d4d4d;" text="This is another person ?" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="143.0" AnchorPane.rightAnchor="559.0" />
             <Button layoutX="230.0" layoutY="360.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="209.0" style="-fx-background-color: #4d4d4d;" text="This is a stranger?" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="350.0" />
@@ -101,7 +101,8 @@
                         <Text fill="#c9c6c6" layoutX="19.0" layoutY="29.501953125" strokeType="OUTSIDE" strokeWidth="0.0" text="Visit Information" AnchorPane.leftAnchor="19.0" AnchorPane.topAnchor="15.0">
                            <font>
                               <Font size="15.0" />
-                           </font></Text>
+                           </font>
+                        </Text>
                         <Label layoutX="189.0" layoutY="68.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
                         <Label layoutX="189.0" layoutY="39.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
                      </children>

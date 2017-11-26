@@ -17,7 +17,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/Face.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainFrame/Face.fxml"));
             AnchorPane root = loader.load();
             Scene scene = new Scene(root, 1200, 800);
 
