@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141">
+   <children>
+      <Label layoutX="65.0" layoutY="46.0" text="Please choose reason for visit" textFill="#f2e29e">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <CheckBox layoutX="82.0" layoutY="116.0" mnemonicParsing="false" style="-fx-skin: red;" text=" Enquiry" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="300.0" layoutY="116.0" mnemonicParsing="false" style="-fx-skin: red;" text=" Fee Payment" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="82.0" layoutY="172.0" mnemonicParsing="false" style="-fx-skin: red;" text=" Collect Mail" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="300.0" layoutY="172.0" mnemonicParsing="false" style="-fx-skin: red;" text=" Submit Assignment" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="300.0" layoutY="225.0" mnemonicParsing="false" style="-fx-skin: red;" text=" Enquiry" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </CheckBox>
+      <CheckBox layoutX="82.0" layoutY="225.0" mnemonicParsing="false" style="-fx-skin: red;" text=" Borow Items" textFill="WHITE">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </CheckBox>
+      <Button layoutX="284.0" layoutY="314.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #bebaba;" text="cancel">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button layoutX="435.0" layoutY="315.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #bebaba;" text="confirm">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

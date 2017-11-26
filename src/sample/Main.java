@@ -14,7 +14,7 @@ public class Main extends Application {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/sample/Face.fxml"));
             AnchorPane root = loader.load();
-            Scene scene = new Scene(root, 600, 400);
+            Scene scene = new Scene(root, 1200, 800);
 
             primaryStage.setTitle("Face Recognition");
             primaryStage.setScene(scene);
