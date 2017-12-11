@@ -1,4 +1,3 @@
-
 package MainFrame;
 
 import javafx.fxml.FXML;
@@ -7,13 +6,22 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import Database.DatabaseApi;
 import Database.Student;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Separator;
+import javafx.scene.image.ImageView;
 
 /**
  *
  * @author KanBaru
  */
-public class EditInfoController {
-DatabaseApi api=new DatabaseApi();
+public class EditInfoController implements Initializable {
+
+    DatabaseApi api = new DatabaseApi();
     @FXML
     private TextField newAndrewIdText;
     @FXML
@@ -21,87 +29,106 @@ DatabaseApi api=new DatabaseApi();
     @FXML
     private TextField newLastNameText;
     @FXML
-    private TextField newGenderText;
+    ChoiceBox<String> chooseGender;
     @FXML
     private TextField newNationalityText;
     @FXML
-    private TextField newProgramText;
+    ChoiceBox<String> chooseProgram;
     @FXML
     private Button closeButton;
     @FXML
     private Button confirmButton;
+    @FXML
+    private Label currentIdLabel;
+    @FXML
+    private Label hidedLabel;
+    @FXML
+    private ImageView profileView;
+    int currentId;
 
-    
-
-    int selectedID;
+    /**
+     * get current identity
+     * @param currentId
+     */
+    public int getIdentity(int currentId) {
+        Student currentStudent = api.getStudentDetailed(currentId);
+        return currentStudent.getStatus();
+    }
 
     /**
      * action for edit information button
      */
     public void editInfo() {
-            //case student:
-
-            selectedID = getId(); //等着航哥OPENCV的接口
+        //case student:
+        if (currentId != 0) {
             String newAndrewID = newAndrewIdText.getText();
             String newFirstName = newFirstNameText.getText();
             String newLastName = newLastNameText.getText();
-            String newGender = newGenderText.getText();
+            String newGender = chooseGender.getValue();
             String newNationality = newNationalityText.getText();
-            String newProgram = newProgramText.getText();
- 
-            api.updateStudent(new Student(selectedID, newAndrewID, newFirstName, newLastName, newGender, newNationality, newProgram, 0));
+            String newProgram = chooseProgram.getValue();
+
+            if (api.updateStudent(new Student(currentId, newAndrewID, newFirstName, newLastName, newGender, newNationality, newProgram, getIdentity(currentId)))) {
 //       
-
-//            /*
-//            批量更新数据库中数据
-//             */
-//            String[] infos = {"andrewID", "name", "gender", "nationality", "program"};
-//            String[] newInfos = {newAndrewID, newName, newGender, newNationality, newProgram};
-//            //保存当前自动提交模式
-//            boolean autoCommit = con.getAutoCommit();
-//            //关闭自动提交
-//            con.setAutoCommit(false);
-//            //使用Statement同时收集多条sql语句
-//
-//            for (int i = 0; i < infos.length; i++) {
-//                String sql = "UPDATE Student SET " + infos[i] + "=" + newInfos[i] + " WHERE ID = selectedID";
-//                stmt.addBatch(sql);
-//            }
-//            //同时提交所有的sql语句
-//            stmt.executeBatch();
-//            //提交修改
-//            con.commit();
-//            con.setAutoCommit(autoCommit);
-//            System.out.println("successfully edited student's information");
-//
-//        } catch (SQLException ex) {
-//            while (ex != null) {
-//                System.out.println("SQLState:  " + ex.getSQLState());
-//                System.out.println("Error Code:" + ex.getErrorCode());
-//                System.out.println("Message:   " + ex.getMessage());
-//                Throwable t = ex.getCause();
-//                while (t != null) {
-//                    System.out.println("Cause:" + t);
-//                    t = t.getCause();
-//                }
-//                ex = ex.getNextException();
-//            }
-//        }
-            Stage stage = (Stage) closeButton.getScene().getWindow();
-            stage.close();
+                Stage stage = (Stage) closeButton.getScene().getWindow();
+                stage.close();
+//                Controller.status = true;
+            } else {
+                hidedLabel.setText("edit failed!");
+            }
+        }else{
+            hidedLabel.setText("Failed! Current ID is 0!");
         }
+    }
 
-        @FXML
-        private void closeWindow
-        
-            () {
+    @FXML
+    private void closeWindow() {
         Stage stage = (Stage) closeButton.getScene().getWindow();
-            stage.close();
+        stage.close();
+        Controller.status = true;
+    }
+
+//    /**
+//     * 为了不报错，等航哥OPENCV出来的接口
+//     */
+//    public int getCurrentId() {
+//        return 2323131;
+//    }
+    @FXML
+    private void checkFull() {
+        //boolean empty = newFirstNameText.getText().isEmpty() | newLastNameText.getText().isEmpty() | newAndrewIdText.getText().isEmpty() | chooseProgram.getValue().isEmpty() | chooseGender.getValue().isEmpty() | newNationalityText.getText().isEmpty();
+        confirmButton.setDisable(checkEmpty());
+    }
+
+    private boolean checkEmpty() {
+        return newFirstNameText.getText().isEmpty()
+                | newLastNameText.getText().isEmpty()
+                | newAndrewIdText.getText().isEmpty()
+                //    | chooseProgram.getValue().isEmpty()| chooseGender.getValue().isEmpty()
+                | newNationalityText.getText().isEmpty();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        if(Controller.id!=0){
+            currentId=Controller.id;
+        }else{
+            currentId=Controller.currentID;
         }
-        /**
-         * 为了不报错，等航哥OPENCV出来的接口
-         */
-    public int getId() {
-        return 2323131;
+        currentIdLabel.setText(Integer.toString(currentId));
+        confirmButton.setDisable(true);
+        if (getIdentity(currentId) == 0) {
+            chooseProgram.getItems().addAll("MISM", "MSIT", "MSPPM");
+            chooseProgram.getSelectionModel().selectFirst();
+        } else {
+            chooseProgram.getItems().addAll("Professor", "Faculty");
+        }
+
+//    chooseProgram.setItems(FXCollections.observableArrayList("MISM", "MSIT", "MSPPM", new Separator(), "Professor", "Faculty"));
+        chooseGender.getItems().addAll("Male", "Female", "Other");
+        chooseGender.getSelectionModel().selectFirst();
+        profileView.setImage(Utils.getProfileImage(currentId));
+
+        Controller.status = false;
     }
 }

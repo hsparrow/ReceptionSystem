@@ -1,4 +1,5 @@
 package Database;
+import Database.Student;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,6 +21,10 @@ public class ConnectMethod {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 	private String url;
+
+    public String getUrl() {
+        return url;
+    }
 
 	/**
 	 * 
@@ -102,7 +107,7 @@ public class ConnectMethod {
         // 每一个table的insertrow method都是不一样的
  
 // primaryID INT,andrewNumID INT,andrewStringID VARCHAR(50),Firstname VARCHAR(50),Lastname VARCHAR(50),gender VARCHAR(50),nationality VARCHAR(50),program VARCHAR(50))
-	public void insertRowStudent(int andrewNumID ,String andrewStringID,String firstname,String lastname, String gender, String nationality,String program,int status) {
+	public boolean insertRowStudent(int andrewNumID ,String andrewStringID,String firstname,String lastname, String gender, String nationality,String program,int status) {
 		String insertTableSQL = "INSERT INTO Student" + "(andrewNumID, andrewStringID, Firstname, Lastname,gender,nationality,program,status) VALUES"
 				+ "(?,?,?,?,?,?,?,?)";
                 String query="select * from Student where andrewNumID= "+andrewNumID;
@@ -123,18 +128,21 @@ public class ConnectMethod {
                         preparedStatement.setString(7, program);
                         preparedStatement.setInt(8, status);
 			preparedStatement.executeUpdate();
-
+return(true);
 		} catch (SQLException e) {
 
 			System.out.println(e.getMessage());
 
 		}}else{
                             System.out.println("andrew id already exsit");
+                            
                         }
                 }catch(SQLException e){
                         System.out.println(e.getMessage());
                         
-                        }}
+                        }
+        return(false);
+        }
 	
 
 	/**
@@ -167,7 +175,7 @@ public class ConnectMethod {
                                 
                                 
 
-				System.out.println("andrewNumID: "+andrewNumID+"  andrewStringID: "+andrewStringID+" Firstname: " + Firstname + " " +"Lastname: "+ Lastname + "\n" + "program: " + program+" status: "+ status
+				System.out.println("primaryID: "+primaryID+" andrewNumID: "+andrewNumID+"  andrewStringID: "+andrewStringID+" Firstname: " + Firstname + " " +"Lastname: "+ Lastname + " gender: "+gender+"\n" +"nationality: "+nationality+ " program: " + program+" status: "+ status
 						);
 			} // end of while
                         if(i==0){
@@ -202,6 +210,44 @@ public class ConnectMethod {
 		}
 
 	}
+        
+        
+        public  void displayLogin(String query) {
+		try (Connection connect = DriverManager.getConnection(url);
+				Statement stmt = connect.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+                    int i=0;
+                  
+			while (rs.next()) {
+                            i+=1;
+				String admin = rs.getString("admin");
+				String passwrod = rs.getString("password");
+                           
+                                
+                                
+                                
+
+				System.out.println("admin: "+admin+" reason: "+passwrod+" passwrod: ");
+			} // end of while
+                        if(i==0){
+                        System.out.print("This table is empty");}
+		} catch (SQLException e) {
+			System.out.println("SQL Exception: " + e);
+		}
+
+	}
+        public ResultSet getResultSet(String query){
+            try {
+            Connection connect = DriverManager.getConnection(url);
+				Statement stmt = connect.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            return rs;
+            }catch(SQLException e){
+            System.out.println("SQL Exception: " + e);}
+				
+                 return null;              
+           
+        }
         	public  Student getStudent(String query) {
                     Student student=null;
 		try (Connection connect = DriverManager.getConnection(url);
@@ -233,9 +279,75 @@ public class ConnectMethod {
 		}
             return student;
 
+	}     //select student.*,max(visit.visitTime) as lastesttime,count(visit.visitTime) as visitnumber from Student left join visit on student.andrewNumID=visit.andrewNumID group by Student.primaryID)
+
+                
+                public  Student getStudentDetailed(String query) {
+                    Student student=null;
+		try (Connection connect = DriverManager.getConnection(url);
+				Statement stmt = connect.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+      int i=0;
+			while (rs.next()) {
+				int primaryID = rs.getInt("primaryID");
+				int andrewNumID = rs.getInt("andrewNumID");
+                                String andrewStringID = rs.getString("andrewStringID");
+				String Firstname = rs.getString("Firstname");
+				String Lastname = rs.getString("Lastname");
+				String gender = rs.getString("gender");
+                                String nationality = rs.getString("nationality");
+                                String program = rs.getString("program");
+                                int status=rs.getInt("status");
+                                Timestamp lastesttime= rs.getTimestamp("lastesttime");
+                                int visitnumber=rs.getInt("visitnumber");
+                                
+                                
+                                student=new Student(primaryID,andrewNumID,andrewStringID,Firstname,Lastname,gender,nationality,program,status,lastesttime,visitnumber);
+                                i+=1;
+                                
+                                
+
+				
+			} // end of while
+                        if(i>1){
+                            System.out.println("Warning: more than one row are selected");
+                        }else if(i==0){
+                            System.out.println("Warning: no row is selected");
+                        }
+		} catch (SQLException e) {
+			System.out.println("SQL Exception: " + e);
+		}
+            return student;
+
 	}
                 
-                public void updateStudent(int andrewNumID,String andrewStringID,String firstname,String lastname, String gender, String nationality,String program) {
+                
+                
+                
+                
+                
+                public  boolean loginCheck(String query) {
+                    
+		try (Connection connect = DriverManager.getConnection(url);
+				Statement stmt = connect.createStatement();
+				ResultSet rs = stmt.executeQuery(query)) {
+      
+			if(rs.next()) {
+				return(true);
+                                
+
+				
+			}else{
+                        return(false);
+                        } // end of while
+                        
+		} catch (SQLException e) {
+			System.out.println("SQL Exception: " + e);
+		}
+    return false;
+	}
+                
+                public boolean updateStudent(int andrewNumID,String andrewStringID,String firstname,String lastname, String gender, String nationality,String program) {
                     String updateTableSQL = "UPDATE Student" + " SET andrewStringID = ?, firstname = ?,  lastname = ?,  gender = ? , nationality = ?, program = ? WHERE andrewNumID = ?";
 //                    System.out.print(updateTableSQL);
 		try {
@@ -249,12 +361,13 @@ public class ConnectMethod {
                         preparedStatement.setString(6, program);
                         preparedStatement.setInt(7, andrewNumID);
 			preparedStatement.executeUpdate();
-
+return(true);
 		} catch (SQLException e) {
 
 			System.out.print(e.getMessage());
 
 		}
+                return(false);
                     }
                 public void refreshTable(String tablename,String createtablequery){
                     String sql="DROP TABLE  "+tablename;
@@ -294,6 +407,25 @@ public class ConnectMethod {
                 }
               
             }
+                
+                               public void insertRowLogin(String admin, String password){
+                    String insertTableSQL = "INSERT INTO Login" + "(admin, password) VALUES"
+				+ "(?,?)";
+                    try {
+			Connection connect = DriverManager.getConnection(url);
+			PreparedStatement preparedStatement = connect.prepareStatement(insertTableSQL);
+			preparedStatement.setString(1, admin);
+                        preparedStatement.setString(2, password);
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+                    
+                }
+              
+            }
+        
         
     
                     

@@ -28,6 +28,7 @@ public class Readtxt {
 
 				// use comma as separator
 				String[] country = line.split(cvsSplitBy);
+                               
 				storedata.add(country);
 
 			}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="238.0" prefWidth="352.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFrame.StrangerAlertController">
+   <children>
+      <Label fx:id="Stranger_label" layoutX="52.0" layoutY="105.0" prefHeight="27.0" prefWidth="268.0" text="Click &quot;yes&quot; to confirm, click &quot;no&quot; to cancel" textFill="WHITE" />
+      <Label layoutX="27.0" layoutY="70.0" text="Are you sure this is a stranger ?" textFill="#f2e29e">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="No_btn" layoutX="191.0" layoutY="152.0" mnemonicParsing="false" onAction="#handleButtonActionNo" prefHeight="40.0" prefWidth="114.0" style="-fx-background-color: #bebaba;" text="NO">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="Yes_btn" layoutX="48.0" layoutY="152.0" mnemonicParsing="false" onAction="#handleButtonActionYes" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #bebaba;" text="YES">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

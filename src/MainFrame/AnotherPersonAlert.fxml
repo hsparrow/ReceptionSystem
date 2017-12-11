@@ -1,8 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1">
-	<!-- TODO Add Nodes -->
+<AnchorPane id="AnchorPane" prefHeight="269.0" prefWidth="468.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFrame.Controller">
+   <children>
+      <TextField fx:id="anotherPersonID" layoutX="105.0" layoutY="110.0" prefHeight="27.0" prefWidth="264.0" style="-fx-background-color: #5b5858;" />
+      <Label fx:id="label_ID" contentDisplay="CENTER" layoutX="117.0" layoutY="70.0" prefHeight="37.0" prefWidth="237.0" text="Enter ID to find the right person:" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="label_wrongDetetion" contentDisplay="CENTER" layoutX="99.0" layoutY="33.0" prefHeight="37.0" prefWidth="282.0" text="This is another person?" textFill="#f2e29e">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="invalid_label" contentDisplay="CENTER" layoutX="86.0" layoutY="137.0" prefHeight="37.0" prefWidth="315.0" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="cancel_btn" layoutX="103.0" layoutY="190.0" mnemonicParsing="false" onAction="#handleCancelAction" prefHeight="40.0" prefWidth="114.0" style="-fx-background-color: #bebaba;" text="cancel">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="ConfirmAnother_btn" layoutX="266.0" layoutY="190.0" mnemonicParsing="false" onAction="#handleConfirmButtonAction" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #bebaba;" text="confirm">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Button>
+   </children>
 </AnchorPane>
-

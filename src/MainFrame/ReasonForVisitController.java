@@ -9,7 +9,11 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.stage.Stage;
+import Database.DatabaseApi;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -18,6 +22,7 @@ import javafx.scene.control.CheckBox;
  */
 public class ReasonForVisitController implements Initializable {
 
+    DatabaseApi api = new DatabaseApi();
     @FXML
     private CheckBox enquiryBox;
     @FXML
@@ -30,13 +35,48 @@ public class ReasonForVisitController implements Initializable {
     private CheckBox submitAssignmentBox;
     @FXML
     private CheckBox otherReasonBox;
+    @FXML
+    private Button closeButton;
+    @FXML
+    private Button confirmButton;
+    @FXML
+    private Label hidedLabel;
 //CheckBox enquiry, CheckBox collectMail, CheckBox borrowItem, CheckBox feePayment, CheckBox submitAssignment, CheckBox otherReason
-    String reasonForVisit = "";
+    //String reasonForVisit = "";
+    int reasonForVisit;
+    int currentId;
+    
+    public void initialize() {
+     //   currentId = Controller.currentID;
+        reasonForVisit = 0;
+    }
+
+    @FXML
+    private void insertReason() {
+        if (currentId != 0) {
+            try {
+                api.insertRowVisit(currentId, reasonForVisit);
+                System.out.print("insert id"+currentId);
+                closeWindow();
+            } catch (Exception e) {
+                hidedLabel.setText("add reason failed!");
+            }
+            
+        }else{
+            hidedLabel.setText("Failed! Current id is 0!");
+        }
+    }
+
+    @FXML
+    private void checkFull() {
+        boolean empty = !(enquiryBox.isSelected() || collectMailBox.isSelected() || borrowItemBox.isSelected() || feePaymentBox.isSelected() || submitAssignmentBox.isSelected() || otherReasonBox.isSelected());
+        confirmButton.setDisable(empty);
+    }
 
     @FXML
     private void handleEquiryBox() {
         if (enquiryBox.isSelected()) {
-            reasonForVisit = "Enquiry";
+            reasonForVisit = 1;
             collectMailBox.setSelected(false);
             borrowItemBox.setSelected(false);
             feePaymentBox.setSelected(false);
@@ -48,7 +88,7 @@ public class ReasonForVisitController implements Initializable {
     @FXML
     private void handleCollectMailBox() {
         if (collectMailBox.isSelected()) {
-            reasonForVisit = "Collect Mail";
+            reasonForVisit = 2;
             enquiryBox.setSelected(false);
             borrowItemBox.setSelected(false);
             feePaymentBox.setSelected(false);
@@ -60,7 +100,7 @@ public class ReasonForVisitController implements Initializable {
     @FXML
     private void handleBorrowItemBox() {
         if (borrowItemBox.isSelected()) {
-            reasonForVisit = "Borrow Item";
+            reasonForVisit = 3;
             enquiryBox.setSelected(false);
             collectMailBox.setSelected(false);
             feePaymentBox.setSelected(false);
@@ -72,7 +112,7 @@ public class ReasonForVisitController implements Initializable {
     @FXML
     private void handleFeePaymentBox() {
         if (feePaymentBox.isSelected()) {
-            reasonForVisit = "Fee Payment";
+            reasonForVisit = 4;
             enquiryBox.setSelected(false);
             collectMailBox.setSelected(false);
             borrowItemBox.setSelected(false);
@@ -84,7 +124,7 @@ public class ReasonForVisitController implements Initializable {
     @FXML
     private void handleSubmitAssignmentBox() {
         if (submitAssignmentBox.isSelected()) {
-            reasonForVisit = "Submit Assignment";
+            reasonForVisit = 5;
             enquiryBox.setSelected(false);
             collectMailBox.setSelected(false);
             borrowItemBox.setSelected(false);
@@ -96,7 +136,7 @@ public class ReasonForVisitController implements Initializable {
     @FXML
     private void handleOtherReasonBoxBox() {
         if (otherReasonBox.isSelected()) {
-            reasonForVisit = "Other Reason";
+            reasonForVisit = 6;
             enquiryBox.setSelected(false);
             collectMailBox.setSelected(false);
             borrowItemBox.setSelected(false);
@@ -105,34 +145,33 @@ public class ReasonForVisitController implements Initializable {
         }
     }
 
-//    private void chooseReason() {
-//        String reasonForVisit = "";
-//
-//        if (enquiryBox.isSelected()) {
-//            reasonForVisit += "Enquiry";
-//        }
-//        if (borrowItemBox.isSelected()) {
-//            reasonForVisit += "Borrow Item";
-//        }
-//        if (feePaymentBox.isSelected()) {
-//            reasonForVisit += "Fee Payment";
-//        }
-//        if (submitAssignmentBox.isSelected()) {
-//            reasonForVisit += "Submit Assignment";
-//        }
-//        if (otherReasonBox.isSelected()) {
-//            reasonForVisit += "Other Reason";
-//        }
-//
-//        // insert reason for visit
-//        System.out.println(reasonForVisit);
-//    }
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        confirmButton.setDisable(true);
+        if(Controller.id!=0){
+            currentId=Controller.id;
+            System.out.print("mmmmmmp"+currentId);
+        }else{
+            System.out.print("mmp");
+            currentId=Controller.currentID;
+        }
     }
 
+    @FXML
+    private void closeWindow() {
+        Stage stage = (Stage) closeButton.getScene().getWindow();
+        stage.close();
+        Controller.status = true;
+    }
+
+//    /**
+//     * 等航哥的接口
+//     */
+//    public int getCurrentId() {
+//        return 2323131;
+//    }
 }

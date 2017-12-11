@@ -13,45 +13,50 @@
             <Font size="20.0" />
          </font>
       </Label>
-      <CheckBox fx:id="enquiryBox" layoutX="82.0" layoutY="116.0" mnemonicParsing="false" onAction="#handleEquiryBox" style="-fx-skin: red;" text=" Enquiry" textFill="WHITE">
+      <CheckBox fx:id="enquiryBox" layoutX="82.0" layoutY="116.0" mnemonicParsing="false" onAction="#handleEquiryBox" onMouseExited="#checkFull" text=" Enquiry" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="feePaymentBox" layoutX="300.0" layoutY="116.0" mnemonicParsing="false" onAction="#handleFeePaymentBox" style="-fx-skin: red;" text=" Fee Payment" textFill="WHITE">
+      <CheckBox fx:id="feePaymentBox" layoutX="300.0" layoutY="116.0" mnemonicParsing="false" onAction="#handleFeePaymentBox" onMouseExited="#checkFull" text=" Fee Payment" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="collectMailBox" layoutX="82.0" layoutY="172.0" mnemonicParsing="false" onAction="#handleCollectMailBox" style="-fx-skin: red;" text=" Collect Mail" textFill="WHITE">
+      <CheckBox fx:id="collectMailBox" layoutX="82.0" layoutY="172.0" mnemonicParsing="false" onAction="#handleCollectMailBox" onMouseExited="#checkFull" text=" Collect Mail" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="submitAssignmentBox" layoutX="300.0" layoutY="172.0" mnemonicParsing="false" onAction="#handleSubmitAssignmentBox" style="-fx-skin: red;" text=" Submit Assignment" textFill="WHITE">
+      <CheckBox fx:id="submitAssignmentBox" layoutX="300.0" layoutY="172.0" mnemonicParsing="false" onAction="#handleSubmitAssignmentBox" onMouseExited="#checkFull" text=" Submit Assignment" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="otherReasonBox" layoutX="300.0" layoutY="225.0" mnemonicParsing="false" onAction="#handleOtherReasonBoxBox" style="-fx-skin: red;" text="Other" textFill="WHITE">
+      <CheckBox fx:id="otherReasonBox" layoutX="300.0" layoutY="225.0" mnemonicParsing="false" onAction="#handleOtherReasonBoxBox" onMouseExited="#checkFull" text="Other" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="borrowItemBox" layoutX="82.0" layoutY="225.0" mnemonicParsing="false" onAction="#handleBorrowItemBox" style="-fx-skin: red;" text=" Borow Items" textFill="WHITE">
+      <CheckBox fx:id="borrowItemBox" layoutX="82.0" layoutY="225.0" mnemonicParsing="false" onAction="#handleBorrowItemBox" onMouseExited="#checkFull" text=" Borow Items" textFill="WHITE">
          <font>
             <Font size="20.0" />
          </font>
       </CheckBox>
-      <Button layoutX="284.0" layoutY="314.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #bebaba;" text="cancel">
+      <Button fx:id="closeButton" layoutX="284.0" layoutY="314.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #bebaba;" text="cancel">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="435.0" layoutY="315.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #bebaba;" text="confirm">
+      <Button fx:id="confirmButton" layoutX="435.0" layoutY="315.0" mnemonicParsing="false" onAction="#insertReason" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #bebaba;" text="confirm">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
+      <Label fx:id="hidedLabel" layoutX="82.0" layoutY="321.0" prefHeight="26.0" prefWidth="153.0" textFill="#f2e29e">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

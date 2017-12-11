@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
@@ -11,7 +12,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFrame.EditInfoController">
    <children>
-      <ImageView fitHeight="184.0" fitWidth="153.0" layoutX="56.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="56.0">
+      <ImageView fx:id="profileView" fitHeight="184.0" fitWidth="153.0" layoutX="56.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="56.0">
          <image>
             <Image url="@../Image/avatar_1540px_1201441_easyicon.net.png" />
          </image>
@@ -46,11 +47,9 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="newLastNameText" layoutX="386.0" layoutY="146.0" prefHeight="17.0" prefWidth="167.0" style="-fx-background-color: #403f3f;" />
-      <TextField fx:id="newAndrewIdText" layoutX="386.0" layoutY="182.0" style="-fx-background-color: #403f3f;" />
-      <TextField fx:id="newProgramText" layoutX="386.0" layoutY="219.0" style="-fx-background-color: #403f3f;" />
-      <TextField fx:id="newGenderText" layoutX="386.0" layoutY="257.0" style="-fx-background-color: #403f3f;" />
-      <TextField fx:id="newNationalityText" layoutX="386.0" layoutY="295.0" style="-fx-background-color: #403f3f;" />
+      <TextField fx:id="newLastNameText" layoutX="386.0" layoutY="146.0" onKeyReleased="#checkFull" prefHeight="17.0" prefWidth="167.0" style="-fx-background-color: #403f3f; -fx-text-fill: white;" />
+      <TextField fx:id="newAndrewIdText" layoutX="386.0" layoutY="182.0" onKeyReleased="#checkFull" style="-fx-background-color: #403f3f; -fx-text-fill: white;" />
+      <TextField fx:id="newNationalityText" layoutX="386.0" layoutY="295.0" onKeyReleased="#checkFull" style="-fx-background-color: #403f3f; -fx-text-fill: white;" />
       <Button fx:id="closeButton" layoutX="293.0" layoutY="336.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="40.0" prefWidth="115.0" style="-fx-background-color: #bebaba;" text="cancel">
          <font>
             <Font size="20.0" />
@@ -66,12 +65,15 @@
             <Font size="18.0" />
          </font>
       </Text>
-      <TextField fx:id="newFirstNameText" layoutX="387.0" layoutY="108.0" prefHeight="17.0" prefWidth="167.0" style="-fx-background-color: #403f3f;" />
+      <TextField fx:id="newFirstNameText" layoutX="387.0" layoutY="108.0" onKeyReleased="#checkFull" prefHeight="17.0" prefWidth="167.0" style="-fx-background-color: #403f3f; -fx-text-fill: white;" />
       <Text fill="WHITE" layoutX="253.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Member ID">
          <font>
             <Font size="18.0" />
          </font>
       </Text>
-      <Label layoutX="388.0" layoutY="82.0" prefHeight="17.0" prefWidth="167.0" textFill="WHITE" />
+      <Label fx:id="currentIdLabel" layoutX="388.0" layoutY="82.0" prefHeight="17.0" prefWidth="167.0" textFill="WHITE" />
+      <ChoiceBox fx:id="chooseProgram" layoutX="386.0" layoutY="219.0" prefHeight="27.0" prefWidth="167.0" style="-fx-background-color: #b8b8b8;" />
+      <ChoiceBox fx:id="chooseGender" layoutX="386.0" layoutY="257.0" prefHeight="27.0" prefWidth="167.0" style="-fx-background-color: #b8b8b8;" />
+      <Label fx:id="hidedLabel" layoutX="56.0" layoutY="274.0" prefHeight="17.0" prefWidth="167.0" textFill="WHITE" />
    </children>
 </AnchorPane>

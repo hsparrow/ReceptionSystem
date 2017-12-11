@@ -5,6 +5,8 @@
  */
 package Database;
 
+import java.sql.Timestamp;
+
 /**
  *
  * @author zoe
@@ -20,6 +22,8 @@ private String gender;
 private String nationality;
 private String program;
 private int status;
+private Timestamp lasttime;
+private int visittime;
 
     public Student(int primaryID, int andrewNumID, String andrewStringID, String Firstname, String Lastname, String gender, String nationality, String program,int status) {
         this.primaryID = primaryID;
@@ -44,6 +48,41 @@ private int status;
         this.program = program;
         this.status=status;
     }
+    
+    public Student(int primaryID,int andrewNumID, String andrewStringID, String Firstname, String Lastname, String gender, String nationality, String program,int status,Timestamp lasttime,int visittime) {
+this.primaryID=primaryID;
+        this.andrewNumID = andrewNumID;
+        this.andrewStringID = andrewStringID;
+        this.Firstname = Firstname;
+        this.Lastname = Lastname;
+        this.gender = gender;
+        this.nationality = nationality;
+        this.program = program;
+        this.status=status;
+        this.lasttime=lasttime;
+        this.visittime=visittime;
+    }
+
+    public Timestamp getLasttime() {
+        return lasttime;
+    }
+
+    public void setLasttime(Timestamp lasttime) {
+        this.lasttime = lasttime;
+    }
+
+    public int getVisittime() {
+        return visittime;
+    }
+
+    public void setVisittime(int visittime) {
+        this.visittime = visittime;
+    }
+
+    public Student() {
+    }
+
+   
 
     public int getPrimaryID() {
         return primaryID;

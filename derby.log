@@ -1,13 +1,13 @@
 ----------------------------------------------------------------
-Sun Nov 26 20:51:16 ACDT 2017:
-正在使用类加载程序 sun.misc.Launcher$AppClassLoader@78308db1 引导数据库
-目录 /Users/cy/NetBeansProjects/ReceptionSystem/Test1 中的 Derby 版本 The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631) 实例 a816c00e-015f-f7d8-69b9-000008751208
-已从 file:/Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/db/lib/derby.jar 加载
+Sun Dec 03 21:24:33 ACDT 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.11.1.2 - (1629631): instance a816c00e-0160-1c03-67d0-00000b861968 
+on database directory /Users/kk/Downloads/ReceptionSystem/Test1 with class loader sun.misc.Launcher$AppClassLoader@1d44bcfa 
+Loaded from file:/Library/Java/JavaVirtualMachines/jdk1.8.0_144.jdk/Contents/Home/db/lib/derby.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.8.0_121-b13
-user.dir=/Users/cy/NetBeansProjects/ReceptionSystem
+java.runtime.version=1.8.0_144-b01
+user.dir=/Users/kk/Downloads/ReceptionSystem
 os.name=Mac OS X
 os.arch=x86_64
-os.version=10.12.6
+os.version=10.13.1
 derby.system.home=null
-数据库类加载程序已启动 - derby.database.classpath=''
+Database Class Loader started - derby.database.classpath=''

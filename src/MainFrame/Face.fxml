@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFrame.Controller">
+<AnchorPane prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #333333;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MainFrame.Controller">
    <children>
       <ImageView fitWidth="50.0" layoutX="-79.0" layoutY="-49.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <image>
-            <Image url="@../Image/CMU_Logo_Stack_White.png" />
+            <Image url="@../Image/CMU_Logo_Stack_White%202.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="60.0" fitWidth="50.0" layoutX="5.0" layoutY="31.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="32.0">
@@ -25,22 +24,22 @@
             <Image url="@../Image/homeWhite.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="60.0" fitWidth="50.0" layoutY="152.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="152.0">
+      <ImageView fx:id="report" fitHeight="60.0" fitWidth="50.0" layoutY="152.0" onMouseClicked="#handleReportAction" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="152.0">
          <image>
             <Image url="@../Image/reportBlack.png" />
          </image>
       </ImageView>
       <AnchorPane layoutX="53.0" layoutY="86.0" prefHeight="200.0" prefWidth="560.0" style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="50.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView id="currentFrame" fx:id="currentFrame" fitHeight="839.0" fitWidth="1262.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-112.0" AnchorPane.topAnchor="0.0" />
+            <ImageView id="currentFrame" fx:id="currentFrame" fitHeight="824.0" fitWidth="1469.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-119.0" AnchorPane.topAnchor="0.0" />
             <Button id="camera_btn" fx:id="camera_btn" layoutY="360.0" mnemonicParsing="false" onAction="#startCamera" prefHeight="40.0" prefWidth="143.0" style="-fx-background-color: #4d4d4d;" text="Start Camera" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" />
-            <Button layoutX="143.0" layoutY="360.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="448.0" style="-fx-background-color: #4d4d4d;" text="This is another person ?" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="143.0" AnchorPane.rightAnchor="559.0" />
-            <Button layoutX="230.0" layoutY="360.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="209.0" style="-fx-background-color: #4d4d4d;" text="This is a stranger?" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="350.0" />
+            <Button fx:id="AnotherPerson_btn" layoutX="143.0" layoutY="360.0" mnemonicParsing="false" onAction="#handleAnotherPersonAction" prefHeight="40.0" prefWidth="448.0" style="-fx-background-color: #4d4d4d;" text="This is another person ?" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="143.0" AnchorPane.rightAnchor="559.0" />
+            <Button fx:id="stranger_btn" layoutX="230.0" layoutY="360.0" mnemonicParsing="false" onAction="#handleStrangerAction" prefHeight="40.0" prefWidth="209.0" style="-fx-background-color: #4d4d4d;" text="This is a stranger?" textFill="WHITE" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="350.0" />
             <AnchorPane layoutX="332.0" layoutY="18.0" prefHeight="400.0" prefWidth="350.0" style="-fx-background-color: #595959;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <children>
                   <AnchorPane fx:id="name" layoutX="16.0" layoutY="21.0" prefHeight="223.0" prefWidth="318.0" style="-fx-background-color: #4d4d4d;" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="20.0">
                      <children>
-                        <ImageView fitHeight="88.0" fitWidth="88.0" layoutX="7.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="7.0">
+                        <ImageView fx:id="profile_image" fitHeight="88.0" fitWidth="88.0" layoutX="7.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="7.0">
                            <image>
                               <Image url="@../Image/avatar_1540px_1201441_easyicon.net.png" />
                            </image>
@@ -74,26 +73,26 @@
                            <font>
                               <Font size="15.0" />
                            </font></Text>
-                        <Label layoutX="188.0" layoutY="51.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
-                        <Label layoutX="188.0" layoutY="77.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
-                        <Label layoutX="188.0" layoutY="103.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
-                        <Label layoutX="188.0" layoutY="130.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
-                        <Label layoutX="188.0" layoutY="156.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
-                        <Label layoutX="188.0" layoutY="182.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
                         <Text fill="WHITE" layoutX="102.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Student ID" wrappingWidth="80.38598150881876">
                            <font>
                               <Font size="14.0" />
                            </font>
                         </Text>
+                        <Text fx:id="memberName" fill="WHITE" layoutX="190.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="104.24071168899536" />
+                        <Text fx:id="studentID" fill="WHITE" layoutX="190.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="104.24071168899536" />
+                        <Text fx:id="andrewID" fill="WHITE" layoutX="190.0" layoutY="115.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="104.24071168899536" />
+                        <Text fx:id="program" fill="WHITE" layoutX="190.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="104.24071168899536" />
+                        <Text fx:id="gender" fill="WHITE" layoutX="190.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="104.24071168899536" />
+                        <Text fx:id="nationality" fill="WHITE" layoutX="190.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="104.24071168899536" />
                      </children></AnchorPane>
                   <AnchorPane fx:id="name1" layoutX="16.0" layoutY="261.0" prefHeight="102.0" prefWidth="318.0" style="-fx-background-color: #4d4d4d;" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0">
                      <children>
-                        <Text fill="WHITE" layoutX="64.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last time visited">
+                        <Text fill="WHITE" layoutX="18.0" layoutY="56.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Last time visited">
                            <font>
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Text fill="WHITE" layoutX="64.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Times of visit">
+                        <Text fill="WHITE" layoutX="18.0" layoutY="85.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Times of visit" wrappingWidth="115.87646818161011">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -103,23 +102,23 @@
                               <Font size="15.0" />
                            </font>
                         </Text>
-                        <Label layoutX="189.0" layoutY="68.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
-                        <Label layoutX="189.0" layoutY="39.0" prefHeight="17.0" prefWidth="87.0" textFill="WHITE" />
+                        <Text fx:id="lastTimeVisited" fill="WHITE" layoutX="147.0" layoutY="55.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="156.24071168899536" />
+                        <Text fx:id="timesOfVisit" fill="WHITE" layoutX="147.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="156.24071168899536" />
                      </children>
                   </AnchorPane>
-                  <Button fx:id="editInfo_btn" layoutX="16.0" layoutY="381.0" mnemonicParsing="false" onAction="#showEditInfoAlert" prefHeight="33.0" prefWidth="167.0" style="-fx-background-color: white;" text="Edit Information" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0">
+                  <Button fx:id="editInfo_btn" layoutX="16.0" layoutY="381.0" mnemonicParsing="false" onAction="#showEditInfoAlert" prefHeight="33.0" prefWidth="167.0" style="-fx-background-color: #bebaba;" text="Edit Information" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0">
                      <font>
                         <Font size="15.0" />
                      </font></Button>
-                  <Button layoutX="16.0" layoutY="435.0" mnemonicParsing="false" onAction="#showAddNewMemberAlert" prefHeight="33.0" prefWidth="175.0" style="-fx-background-color: white;" text="Add New Member" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0">
+                  <Button layoutX="16.0" layoutY="435.0" mnemonicParsing="false" onAction="#showAddNewMemberAlert" prefHeight="33.0" prefWidth="175.0" style="-fx-background-color: #bebaba;" text="Add New Member" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0">
                      <font>
                         <Font size="15.0" />
                      </font></Button>
-                  <Button layoutX="16.0" layoutY="489.0" mnemonicParsing="false" onAction="#showReasonAlert" prefHeight="33.0" prefWidth="175.0" style="-fx-background-color: white;" text="Reason for Visit" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0">
+                  <Button layoutX="16.0" layoutY="489.0" mnemonicParsing="false" onAction="#showReasonAlert" prefHeight="33.0" prefWidth="175.0" style="-fx-background-color: #bebaba;" text="Reason for Visit" AnchorPane.leftAnchor="16.0" AnchorPane.rightAnchor="16.0">
                      <font>
                         <Font size="15.0" />
                      </font></Button>
-                  <Button layoutX="16.0" layoutY="541.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="318.0" style="-fx-background-color: white;" text="Call Security">
+                  <Button layoutX="16.0" layoutY="541.0" mnemonicParsing="false" onAction="#callSecurity" prefHeight="33.0" prefWidth="318.0" style="-fx-background-color: #bebaba;" text="Call Security">
                      <font>
                         <Font size="15.0" />
                      </font>

@@ -17,17 +17,27 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainFrame/Face.fxml"));
+            //【最终版】用脸登陆login界面
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainFrame/LoginFace.fxml"));
+
             AnchorPane root = loader.load();
-            Scene scene = new Scene(root, 1200, 800);
+            Scene scene = new Scene(root, 700, 400);
 
             primaryStage.setTitle("Face Recognition");
             primaryStage.setScene(scene);
             primaryStage.show();
 
-            Controller controller = loader.getController();
+            //【测试用】直接进入主界面
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("/MainFrame/Face.fxml"));
+//          
+//            AnchorPane root = loader.load();
+//            Scene scene = new Scene(root, 1400, 800);
 
-            primaryStage.setOnCloseRequest((event -> controller.setClosed()));
+//            primaryStage.setTitle("Face Recognition");
+//            primaryStage.setScene(scene);
+//            primaryStage.show();
+//            Controller controller = loader.getController();
+//            primaryStage.setOnCloseRequest((event -> controller.setClosed()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -43,6 +53,6 @@ public class Main extends Application {
         
          DatabaseApi api=new DatabaseApi();
          api.getcon();
-         api.displayAllStudent();
+//         api.displayAllStudent();
     }
 }
