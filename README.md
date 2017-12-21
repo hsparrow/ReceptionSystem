@@ -1,3 +1,3 @@
 # ReceptionSystem
 
-A reception system appying opencv face recognition function.
+A reception system applying opencv face detection and recognition function.
